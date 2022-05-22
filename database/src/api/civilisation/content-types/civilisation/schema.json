@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "civilisations",
+  "info": {
+    "singularName": "civilisation",
+    "pluralName": "civilisations",
+    "displayName": "Civilisation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "basicDescription": {
+      "type": "richtext",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "abilityDescription": {
+      "type": "richtext",
+      "required": true
+    },
+    "victoryConditions": {
+      "type": "richtext",
+      "required": true
+    },
+    "leaders": {
+      "type": "component",
+      "repeatable": true,
+      "component": "civilisation-info.leader-ability"
+    }
+  }
+}

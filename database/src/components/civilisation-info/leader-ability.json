@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_civilisation_info_leader_abilities",
+  "info": {
+    "displayName": "leaderAbility",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "leaderName": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "leaderDescription": {
+      "type": "richtext",
+      "required": true
+    },
+    "leaderImgSmall": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "leaderAbility": {
+      "type": "richtext"
+    }
+  }
+}
