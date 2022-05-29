@@ -41,6 +41,9 @@
       "type": "component",
       "repeatable": true,
       "component": "civilisation-info.leader-ability"
+    },
+    "audioLink": {
+      "type": "string"
     }
   }
 }
