@@ -1,0 +1,28 @@
+yhtml {
+  height: 100%;
+}
+
+body {
+  height: clamp(100%, 100%, 100%);
+  background-image: url("../public/img/background.webp");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+#root {
+  width: 70%;
+  margin-inline: auto;
+  
+  & > * {
+    position: relative;
+  }
+
+  main {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fef0c3;
+    margin-top: max(50px, 15vh);
+    padding: 20px;
+  }
+}
