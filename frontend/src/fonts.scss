@@ -3,3 +3,23 @@
 
 $title-font: 'Open Sans', sans-serif;
 $basic-font: 'Roboto', sans-serif;
+
+$text-color: #dda833;
+$bg-color: black;
+
+$font-xxl: 1.8rem;
+$font-xl: 1.4rem;
+$font-sm: 1.2rem;
+$font-s: 1rem;
+$font-xs: 0.8rem;
+
+$font-title-xxl: 6rem;
+$font-title-xl: 4rem;
+$font-title-sm: 3.5rem;
+$font-title-s: 2.5rem;
+$font-title-xs: 2rem;
+
+$actual-text-size: $font-xl;
+$actual-title-size: $font-title-xl;
+
+$div-container-padding: max(5px, 2vw);

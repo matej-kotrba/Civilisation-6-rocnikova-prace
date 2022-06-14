@@ -44,6 +44,18 @@
     },
     "audioLink": {
       "type": "string"
+    },
+    "region": {
+      "type": "enumeration",
+      "enum": [
+        "Europe",
+        "America",
+        "Asia",
+        "Africa",
+        "Other"
+      ],
+      "default": "Europe",
+      "required": true
     }
   }
 }

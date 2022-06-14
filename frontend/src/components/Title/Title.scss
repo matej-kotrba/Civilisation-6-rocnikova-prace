@@ -1,17 +1,36 @@
 @use "../../fonts.scss"as *;
 
-.main-title {
-  font-family: $basic-font;
-  font-size: max(2rem, max(3.5vw, 3.5vh));
+.title-container {
+  padding: $div-container-padding;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px black solid;
 
-  & img {
-    width: max(3vw, max(3vh, 50px));
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    border: 2px solid black;
-    margin-inline: 15px;
+  .main-title {
+    font-family: $basic-font;
+    font-size: $actual-title-size;
+    display: flex;
+    align-items: center;
+
+    & img {
+      width: max(3vw, max(3vh, 50px));
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 2px solid black;
+      margin-inline: 15px;
+    }
+  }
+
+  & > a {
+    font-size: max(3vw, max(3vh, 50px));;
+    color: purple;
+    transition: .2s;
+    transform-origin: center;
+
+    &:hover {
+      color: rgb(97, 6, 97);
+      transform: scale(1.2);
+    }
   }
 }

@@ -1,12 +1,5 @@
 @use "../../fonts.scss"as *;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 @mixin setFlex($direction) {
   display: flex;
   flex-direction: $direction;
@@ -17,19 +10,22 @@
   pointer-events: all;
 }
 
+$bg-color: black;
+
 nav {
-  width: 70%;
-  height: max(8vh, 50px);
+
+  --nav-height: max(8vh, 50px);
+
+  width: 100%;
+  height: var(--nav-height);
   padding: 10px;
-  background-image: radial-gradient(circle at right, rgb(227, 186, 103) 65%, rgb(239, 239, 239));
+  // background-image: radial-gradient(circle at right, rgb(227, 186, 103) 65%, rgb(239, 239, 239));
+  background-color: $bg-color;
   @include setFlex(row);
   align-items: center;
-  border-radius: 0 0 25px 25px;
   font-family: $title-font;
   text-transform: uppercase;
-  border: black 2px solid;
-  border-top: 0;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -38,7 +34,7 @@ nav {
 
   & a {
     text-decoration: none;
-    color: black;
+    color: $text-color;
   }
 
   & h3 {
@@ -46,13 +42,25 @@ nav {
   }
 
   .home-link {
-    height: 100%;
+    width: max(7%, 80px);
+    max-width: var(--nav-height);
     aspect-ratio: 1/1;
     margin: 10px;
+    position: relative;
+    border: 2px solid transparent;
+    overflow: hidden;
+    transition: .2s transform, filter .2s;
+
+    &:hover, &:focus {
+      transform: scale(1.1);
+      filter: drop-shadow(3px 3px 5px grey);
+    }
 
     img {
-      height: 100%;
+      width: 100%;
       aspect-ratio: 1/1;
+      transition: filter .3s ease, transform .3s ease;
+      transform-origin: center;
     }
   }
 
@@ -61,10 +69,12 @@ nav {
     height: 100%;
     position: relative;
     @include setFlex(row);
+    flex-wrap: wrap;
     justify-content: space-evenly;
 
     &>li {
       height: 100%;
+      color: $text-color;
       @include setFlex(column);
       justify-content: center;
       padding-inline: 10px;
@@ -75,17 +85,34 @@ nav {
         content: '';
         width: 100%;
         height: 20%;
-        border-inline: 2px solid black;
-        filter: drop-shadow(2px 0 5px rgba(0, 0, 0, 0.478));
+        border-inline: 2px solid $text-color;
+        filter: drop-shadow(2px 0 5px $text-color);
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         transition: height .4s ease;
       }
 
       &:hover::before {
         height: 100%;
+      }
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center;
+        transform: scaleX(0);
+        background-color: $text-color;
+        transition: .4s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
       }
 
       &:hover>.other-link-links {
@@ -104,7 +131,7 @@ nav {
 
       &>.other-link-links {
 
-        --border-radius-value: 0 0 20px 20px;
+        --border-radius-value: 0 0 0px 0px;
 
         @include setFlex(column);
         opacity: 0;
@@ -119,7 +146,7 @@ nav {
         scrollbar-width: thin;
         scrollbar-color: gold black;
         background-color: transparent;
-        
+
         border-radius: var(--border-radius-value);
         transform-origin: top;
         transform: translate(-50%) scaleY(0);
@@ -149,7 +176,7 @@ nav {
           border-block: grey 1px solid;
           z-index: 1;
 
-          & > .material-symbols-outlined {
+          &>.material-symbols-outlined {
             position: absolute;
             right: 50%;
             top: 50%;
@@ -166,7 +193,8 @@ nav {
             outline: none;
           }
 
-          &:hover > .material-symbols-outlined, &:focus > .material-symbols-outlined {
+          &:hover>.material-symbols-outlined,
+          &:focus>.material-symbols-outlined {
             right: 5%;
             opacity: 1;
           }

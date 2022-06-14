@@ -1,0 +1,50 @@
+#back-to-top {
+  position: fixed;
+  font-size: max(4rem, max(4vw, 4vh));
+  bottom: min(30px, 2vw);
+  right: min(30px, 2vw);
+  color: white;
+  background-color: rgb(59, 59, 59);
+  border-radius: 50%;
+  line-height: 0;
+  z-index: 100000;
+  opacity: 0;
+  bottom: calc(0px - min(30px, 2vw));
+  right: calc(0px - min(30px, 2vw));
+  cursor: pointer;
+  transition: .5s ease;
+
+  & svg {
+    transition: .5s;
+    &:hover {
+      color: rgb(217, 217, 217);
+      transform: translateY(-10%);
+    }
+  }
+}
+
+#back-to-top.active {
+  opacity: 1;
+  bottom: min(30px, 2vw);
+  right: min(30px, 2vw);
+}
+
+// #back-to-top:not(.active) {
+//   animation: forwards 1000ms fade-out;
+// }
+
+// @keyframes fade-in {
+//   100% {
+//     opacity: 1;
+//     bottom: min(30px, 2vw);
+//     right: min(30px, 2vw);
+//   }
+// }
+
+// @keyframes fade-out {
+//   100% {
+//     opacity: 0;
+//     bottom: calc(0px - min(30px, 2vw));
+//     right: calc(0px - min(30px, 2vw));
+//   }
+// }

@@ -5,7 +5,7 @@ import React from "react"
 export default function GetLinks(props) {
   const QUERY = gql`
   query get${props.name} {
-    ${props.name}(pagination:{limit: 100} ) {
+    ${props.name}(pagination:{limit: 100}, sort: "name") {
       data {
         attributes {
           name

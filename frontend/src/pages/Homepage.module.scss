@@ -1,0 +1,110 @@
+@use "../fonts.scss" as *;
+
+.homepage {
+  padding: $div-container-padding;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: $text-color;
+  overflow: hidden;
+
+  font-family: $title-font;
+  font-size: $actual-text-size;
+
+  .title {
+    
+    position: relative;
+    isolation: isolate;
+
+    h1 {
+      font-size: $actual-title-size;
+      text-align: center;
+      text-transform: uppercase;
+      animation: appear-title 5s ease forwards;
+    }
+    img {
+      position: absolute;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateY(200%) scale(2);
+      transform-origin: center;
+      filter: saturate(0%);
+      z-index: -99;
+      opacity: 0;
+      animation: appear-image 5s ease forwards;
+      animation-delay: 2s;
+    }
+  }
+
+  .slideShowCivilisations {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    aspect-ratio: 2/1;
+    border-radius: 10px;
+    margin-inline: auto;
+
+    & > * {
+      position: relative;
+      flex-basis: 0;
+      flex-grow: 1;
+      flex-shrink: 1;
+      transform: skewX(-7deg);
+      border: white 2px solid;
+      background-color: $bg-color;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .3s ease;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          z-index: 4 - $i;
+        }
+      }
+
+      & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;     
+      }
+
+      & > p {
+        position: absolute;
+        color: white;
+        font-size: calc($font-xl + .2rem);
+        font-weight: 800;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        z-index: 100;
+        flex-grow: 2;
+      }
+    }
+  }
+}
+
+@keyframes appear-title {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes appear-image {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(2) translateX(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(2) translateX(-25%);
+  }
+}

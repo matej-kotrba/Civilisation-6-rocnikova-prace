@@ -1,0 +1,33 @@
+@use "../../fonts.scss" as *;
+
+.footer-contianer {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5%;
+  padding: 15px;
+
+  & .footer-link-container {
+    color: #dda833;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: $title-font;
+    
+    & label {
+      text-transform: uppercase;
+      font-size: max(1rem, max(2wv, 2vh));
+    }
+  }
+
+  & .footer-icon {
+    font-size: max(4rem, max(3.5vw, 3.5vh));
+    color: #dda833;
+    transition: color .2s ease;
+  
+    &:hover {
+      color: #a3730b;
+    }
+  }
+}

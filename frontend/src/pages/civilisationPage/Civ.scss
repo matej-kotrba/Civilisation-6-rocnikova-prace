@@ -1,0 +1,65 @@
+@use "../../fonts.scss"as *;
+
+.civ-content {
+  padding: $div-container-padding;
+  font-family: $title-font;
+  font-size: $actual-text-size;
+  padding-block: max(50px, 2vh);
+  display: grid;
+  gap: 20px;
+  row-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+  place-items: center;
+  align-items: baseline;
+
+  &>.victory-conditions-container {
+    grid-column: 1/-1;
+  }
+
+  &>.audio-container {
+    a {
+      font-size: max(150px, max(10vw, 10vh));
+    }
+  }
+
+  &>.leaders-container {
+
+    grid-column: 1/-1;    
+    width: 100%;
+
+    & h2 {
+      margin-bottom: 20px;
+    }
+
+    & img {
+      width: max(150px, max(15vw, 15vh));
+    }
+
+    &>.leaders-container-leaders {
+      
+      --grid-gap: 5%;
+
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      gap: var(--grid-gap);
+
+      & > .leaders-container-leader {
+        width: clamp(150px, calc(50% - var(--grid-gap)/2), calc(50% - var(--grid-gap)/2));
+
+        & > .leaders-container-leader-ability::before {
+          content: 'Ability: ';
+          font-weight: 900;
+        }
+      }
+
+      & img {
+        display: block;
+      }
+
+    }
+  }
+
+}

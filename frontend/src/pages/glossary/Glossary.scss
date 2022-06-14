@@ -1,0 +1,23 @@
+@use "../../fonts.scss"as *;
+
+.glossary-content {
+  padding: $div-container-padding;
+  position: relative;
+  font-family: $title-font;
+  font-size: $actual-text-size;
+  padding-block: max(50px, 2vh);
+  display: grid;
+  gap: 20px;
+  row-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+  place-items: center;
+  align-items: baseline;
+
+  .image-container {
+    grid-column: 1/-1;
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+
+}

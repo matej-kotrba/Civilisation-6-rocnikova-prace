@@ -1,6 +1,8 @@
 import React from "react"
 import { useQuery, gql } from "@apollo/client"
 import Title from "../Title/Title"
+import CivPage from "../../pages/civilisationPage/Civ"
+import GlossaryPage from "../../pages/glossary/Glossary"
 
 export default function Content(props) {
 
@@ -78,6 +80,9 @@ export default function Content(props) {
     `
       break
     }
+    default: {
+      console.log("Wrong request !")
+    }
   }
 
   // QUERY = gql`
@@ -104,12 +109,19 @@ export default function Content(props) {
       case "civilisation": {
         return (
           <>
-            <Title title={data.civilisation.data.attributes.name} img={data.civilisation.data.attributes.logo.data.attributes.url} />
+            <Title title={data.civilisation.data.attributes.name} img={data.civilisation.data.attributes.logo.data.attributes.url}
+              audioLink={data.civilisation.data.attributes.audioLink} />
+            <CivPage data={data} />
           </>
         )
-
-
-        break
+      }
+      case "glossary": {
+        return (
+          <>
+            <Title title={data.glossary.data.attributes.name} img={data.glossary.data.attributes.image.data.attributes.url} />
+            <GlossaryPage data={data} />
+          </>
+        )
       }
       default: {
         <p>Unsupported site.</p>
