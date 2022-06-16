@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client"
+import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client";
 import { BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
-  uri: "http://localhost:1337/graphql",
+  uri: process.env.REACT_APP_ADDRESS_TO_DATABASE + "/graphql",
   cache: new InMemoryCache()
 })
 

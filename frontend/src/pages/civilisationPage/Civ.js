@@ -8,7 +8,7 @@ export default function Civ(props) {
   const leadersArray = path.leaders.map(item => {
     return (
       <div className="leaders-container-leader" key={item.leaderName}>
-        <h3>{item.leaderName}<img alt={"Image of leader - " + item.leaderName} src={"http://localhost:1337" + item.leaderImgSmall.data.attributes.url}></img></h3>
+        <h3>{item.leaderName}<img alt={"Image of leader - " + item.leaderName} src={process.env.REACT_APP_ADDRESS_TO_DATABASE + item.leaderImgSmall.data.attributes.url}></img></h3>
         <p className="leaders-container-leader-description">{item.leaderDescription}</p>
         <p className="leaders-container-leader-ability">{item.leaderAbility}</p>
       </div>

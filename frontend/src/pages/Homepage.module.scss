@@ -14,6 +14,7 @@
   .title {
     
     position: relative;
+    margin-bottom: max(5vh, 40px);
     isolation: isolate;
 
     h1 {
@@ -34,6 +35,17 @@
       opacity: 0;
       animation: appear-image 5s ease forwards;
       animation-delay: 2s;
+    }
+  }
+
+  .introduction {
+    & > *:not(h2) {
+      text-indent: 10px;
+    }
+    & > ul {
+      text-indent: 40px;
+      list-style-type:disc;
+      list-style-position:inside;
     }
   }
 
@@ -85,6 +97,52 @@
       }
     }
   }
+  .civilisationsShowcase {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100px;
+    justify-content: space-evenly;
+    gap: 30px;
+
+    .civilisationLink {
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      opacity: 0;
+      animation: civ-appear .3s ease forwards;
+      animation-delay: calc(var(--delay)*500ms);
+
+      img {
+        border-radius: 50%;
+        filter: brightness(40%);
+        width: max(130px, 12vw);
+        aspect-ratio: 1/1;
+        transition: .3s ease;
+        border: 2px white solid;
+      }
+
+      p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        transition: .3s ease;
+      }
+
+      &:hover {
+        img {
+          filter: brightness(100%);
+        }
+        p {
+          top: -12%;
+        }
+      }
+    }
+  }
 }
 
 @keyframes appear-title {
@@ -106,5 +164,16 @@
   100% {
     opacity: 1;
     transform: translateY(0) scale(2) translateX(-25%);
+  }
+}
+
+@keyframes civ-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
