@@ -2,6 +2,7 @@ import React from "react"
 import "./Navbar.scss"
 import GetLinks from "./GetLinks";
 import Logo from "./img/logo.webp"
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
 
@@ -27,8 +28,8 @@ export default function Navbar() {
             <GetLinks name="glossaries" />
           </div>
         </li>
-        <li id="about">
-          <a href="/about"><h3 className="other-link-name">About</h3></a>
+        <li id="about" className="singleLink">
+          <Link to={"/about"}><h3 className="other-link-name">About</h3></Link>
         </li>
       </ul>
     </nav>

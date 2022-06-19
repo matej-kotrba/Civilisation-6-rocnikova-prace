@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client"
 import Title from "../Title/Title"
 import CivPage from "../../pages/civilisationPage/Civ"
 import GlossaryPage from "../../pages/glossary/Glossary"
+import Preloader from "../../components/Preloader/Preloader"
 
 export default function Content(props) {
 
@@ -100,8 +101,7 @@ export default function Content(props) {
 
 
   const { loading, error, data } = useQuery(QUERY)
-
-  if (loading) return <p>Page is loading ...</p>
+  if (loading) return <Preloader/>
   else if (error) return <p>There was an error in loading your page.</p>
   else if (data) {
     console.log(data)

@@ -2,22 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client";
-import { BrowserRouter } from 'react-router-dom';
-
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_ADDRESS_TO_DATABASE + "/graphql",
-  cache: new InMemoryCache()
-})
+// import reportWebVitals from './reportWebVitals';
+// require('dotenv').config()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
 window.onscroll = () => {
@@ -33,4 +25,4 @@ window.onscroll = () => {
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

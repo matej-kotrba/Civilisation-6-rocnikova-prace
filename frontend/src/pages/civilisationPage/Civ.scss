@@ -3,7 +3,7 @@
 .civ-content {
   padding: $div-container-padding;
   font-family: $title-font;
-  font-size: $actual-text-size;
+  font-size: var(--font-size);
   padding-block: max(50px, 2vh);
   display: grid;
   gap: 20px;

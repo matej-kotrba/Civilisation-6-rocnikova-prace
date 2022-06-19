@@ -1,0 +1,76 @@
+@use "../../fonts.scss"as *;
+
+.loader {
+  width: 100%;
+  height: max(45vh, 250px);
+  background-color: transparent;
+  position: relative;
+
+  .flex {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .circle {
+    position: absolute;
+    animation: rotate 4s linear infinite;
+    border-radius: 50%;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        border-top: black solid 2px;
+        width: 160px - 20*$i;
+        height: 160px - 20*$i;
+        animation-delay: 100ms * $i;
+      }
+    }
+  }
+
+  // &::before, &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   height: max(30vmin, 150px);
+  //   width: max(30vmin, 150px);
+  //   background-color: transparent;
+  //   border-radius: 50%;
+  //   border: 10px solid transparent;
+  //   border-top-color: black;
+  // }
+  // &::before {
+  //   animation: loaderBefore 4s ease-out infinite;
+  // }
+  // &::after {
+  //   transform: translate(-50%, -50%) rotate(0deg);
+  //   animation: loaderAfter 4s ease-out infinite;
+  // }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  30% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(-360deg);
+  }
+
+  80% {
+    transform: rotate(-720deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

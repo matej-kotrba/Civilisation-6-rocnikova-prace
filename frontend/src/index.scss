@@ -1,3 +1,12 @@
+@use "./responsivity.scss" as *;
+
+:root {
+  --font-size: $font-xl;
+  --title-size: $font-title-xl;
+  --root-width: 70%;
+  --inside-main-width: 100%; 
+}
+
 html {
   height: 100%;
 }
@@ -17,10 +26,8 @@ body {
   scroll-behavior: smooth;
 }
 
-$inside-body-width: 90%;
-
 #root {
-  width: 70%;
+  width: var(--root-width);
   margin-inline: auto;
   
   & > * {
@@ -32,7 +39,7 @@ $inside-body-width: 90%;
   }
 
   main { 
-    width: $inside-body-width;
+    width: var(--inside-main-width);
     margin: 0 auto;
     background-color: #fef0c3;
     margin-top: max(50px, 15vh);
@@ -41,7 +48,7 @@ $inside-body-width: 90%;
   }
   
   footer {
-    width: $inside-body-width;
+    width: var(--inside-main-width);
     margin: 0 auto;
   }
 }

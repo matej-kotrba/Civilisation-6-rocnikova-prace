@@ -9,7 +9,7 @@
 
   .main-title {
     font-family: $basic-font;
-    font-size: $actual-title-size;
+    font-size: var(--title-size);
     display: flex;
     align-items: center;
 

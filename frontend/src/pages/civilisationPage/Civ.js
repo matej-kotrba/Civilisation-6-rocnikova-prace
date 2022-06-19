@@ -2,6 +2,7 @@ import React from "react"
 import "./Civ.scss"
 
 export default function Civ(props) {
+
   const { data } = props
   const path = data.civilisation.data.attributes
 

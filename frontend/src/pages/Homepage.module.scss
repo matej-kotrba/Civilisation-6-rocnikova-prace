@@ -9,7 +9,7 @@
   overflow: hidden;
 
   font-family: $title-font;
-  font-size: $actual-text-size;
+  font-size: var(--font-size);
 
   .title {
     
@@ -18,7 +18,7 @@
     isolation: isolate;
 
     h1 {
-      font-size: $actual-title-size;
+      font-size: var(--title-size);
       text-align: center;
       text-transform: uppercase;
       animation: appear-title 5s ease forwards;
@@ -39,14 +39,9 @@
   }
 
   .introduction {
-    & > *:not(h2) {
-      text-indent: 10px;
-    }
-    & > ul {
-      text-indent: 40px;
-      list-style-type:disc;
-      list-style-position:inside;
-    }
+    width: min(80%, 800px);
+    margin-inline: auto;
+    margin-block: 100px;
   }
 
   .slideShowCivilisations {
@@ -56,6 +51,7 @@
     aspect-ratio: 2/1;
     border-radius: 10px;
     margin-inline: auto;
+    margin-block: 50px;
 
     & > * {
       position: relative;
@@ -104,6 +100,8 @@
     flex-wrap: wrap;
     width: 100%;
     min-height: 100px;
+    scroll-margin-block-start: 150px;
+    margin-block: 20px;
     justify-content: space-evenly;
     gap: 30px;
 
@@ -141,6 +139,84 @@
           top: -12%;
         }
       }
+    }
+  }
+
+  .images {
+    --positionIndex: 0;
+    width: 90%;
+    aspect-ratio: 1920/1080;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 3px solid $text-color;
+    border-radius: 30px;
+    position: relative;
+
+    .arrowLeft, .arrowRight {
+      width: max(50px, 10%);
+      aspect-ratio: 1/1;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.537);
+      border-radius: 50%;
+      font-size: max(20px, 3vw);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      z-index: 10;
+      
+      &:hover {
+        color: black;
+        background-color: $text-color;
+      }
+    }
+
+    .arrowLeft {
+      left: 15px;
+    }
+
+    .arrowRight {
+      right: 15px;
+    }
+
+    .indicator {
+      display: flex;
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      gap: 6%;
+
+      & > .indicatorSymbol {
+        width: 50px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.379);
+        border: black 2px solid;
+      
+        &.activeIndicator {
+          background-color: white;
+        }
+      }
+    }
+
+    .slides {
+      position: relative;
+      display: flex;
+      transform: translateX(calc(-100% * var(--positionIndex)));
+    }
+
+    & img {
+      flex-shrink: 0;
+      width: 100%;
+      position: relative;
+      opacity: 0;
+      transition: .5s ease;  
+    }
+    & img.active {
+      opacity: 1;
     }
   }
 }

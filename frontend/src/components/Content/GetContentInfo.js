@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
 import Content from "./Content"

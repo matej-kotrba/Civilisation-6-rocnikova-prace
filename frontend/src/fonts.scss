@@ -1,5 +1,9 @@
+@use "./responsivity.scss" as *;
+@forward "./responsivity.scss";
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 
 $title-font: 'Open Sans', sans-serif;
 $basic-font: 'Roboto', sans-serif;
@@ -13,13 +17,69 @@ $font-sm: 1.2rem;
 $font-s: 1rem;
 $font-xs: 0.8rem;
 
+
 $font-title-xxl: 6rem;
 $font-title-xl: 4rem;
-$font-title-sm: 3.5rem;
+$font-title-sm: 3.2rem;
 $font-title-s: 2.5rem;
-$font-title-xs: 2rem;
-
-$actual-text-size: $font-xl;
-$actual-title-size: $font-title-xl;
+$font-title-xs: 1.7rem;
 
 $div-container-padding: max(5px, 2vw);
+
+:root {
+  --font-size: $font-xl;
+  --title-size: $font-title-xl;
+  --root-width: 70%;
+  --inside-main-width: 100%; 
+}
+
+@media screen and (min-width: #{map-get($breakpoints, "xs")}) {
+  :root {
+    --font-size: #{$font-xs};
+    --title-size: #{$font-title-xs};
+    --root-width: 95%;
+    --inside-main-width: 100%; 
+  }
+}
+@media screen and (min-width: #{map-get($breakpoints, "s")}) {
+  :root {
+    --font-size: #{$font-s};
+    --title-size: #{$font-title-s};
+    --root-width: 85%;
+    --inside-main-width: 95%; 
+  }
+}
+@media screen and (min-width: #{map-get($breakpoints, "sm")}) {
+  :root {
+    --font-size: #{$font-sm};
+    --title-size: #{$font-title-sm};
+    --root-width: 75%;
+    --inside-main-width: 90%; 
+  }
+}
+@media screen and (min-width: #{map-get($breakpoints, "xl")}) {
+  :root {
+    --font-size: #{$font-xl};
+    --title-size: #{$font-title-xl};
+    --root-width: 70%;
+    --inside-main-width: 85%; 
+  }
+}
+@media screen and (min-width: #{map-get($breakpoints, "xxl")}) {
+  :root {
+    --font-size: #{$font-xxl};
+    --title-size: #{$font-title-xxl};
+    --root-width: 65%;
+    --inside-main-width: 80%; 
+  }
+}
+
+
+
+// @each $breakpoint, $value in $breakpoints {
+//   @media screen and (min-width: $breakpoint) {
+//     :root {
+//       --font-size: map- ($fonts, $);
+//     }  
+//   }
+// }
