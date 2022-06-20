@@ -15,6 +15,7 @@
     
     position: relative;
     margin-bottom: max(5vh, 40px);
+    margin-top: 5vh;
     isolation: isolate;
 
     h1 {
@@ -144,7 +145,7 @@
 
   .images {
     --positionIndex: 0;
-    width: 90%;
+    width: 100%;
     aspect-ratio: 1920/1080;
     margin-inline: auto;
     overflow: hidden;
@@ -187,12 +188,10 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 15;
-      gap: 6%;
 
       & > .indicatorSymbol {
-        width: 50px;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
+        width: max(5vw, 35px);
+        aspect-ratio: 3/1;
         background-color: rgba(255, 255, 255, 0.379);
         border: black 2px solid;
       
@@ -251,5 +250,16 @@
   100% {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+
+@media screen and (max-width: #{map-get($breakpoints, "s")}) {
+  .slideShowCivilisations {
+    flex-direction: column !important;
+    height: 600px !important;
+    
+    &>div {
+      transform: none !important;
+    }
   }
 }

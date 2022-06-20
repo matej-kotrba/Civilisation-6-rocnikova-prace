@@ -25,8 +25,8 @@
 
 #back-to-top.active {
   opacity: 1;
-  bottom: min(30px, 2vw);
-  right: min(30px, 2vw);
+  bottom: min(30px, 2vmax);
+  right: min(30px, 2vmax);
 }
 
 // #back-to-top:not(.active) {

@@ -3,6 +3,7 @@
 .title-container {
   padding: $div-container-padding;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px black solid;
@@ -32,5 +33,14 @@
       color: rgb(97, 6, 97);
       transform: scale(1.2);
     }
+  }
+}
+
+@media screen and (max-width: #{map-get($breakpoints, "sm")}) {
+  .civ-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .leaders-container-leader {
+    min-width: 100%;
   }
 }

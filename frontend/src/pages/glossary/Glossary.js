@@ -20,7 +20,7 @@ export default function Glossary(props) {
      </div>}
      {path.imageBig.data && <div className="image-container">
         <h2>{"Image of " + path.name}</h2>
-        <img src={"http://localhost:1337"+path.imageBig.data.attributes.url} alt={path.name + " image"}></img>
+        <img src={process.env.REACT_APP_ADDRESS_TO_DATABASE+path.imageBig.data.attributes.url} alt={path.name + " image"}></img>
       </div>}
     </div>
   )

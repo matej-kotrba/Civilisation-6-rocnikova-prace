@@ -226,31 +226,38 @@ export default function Homepage() {
       <div id="civShowCase" className={HomepageSCSS.civilisationsShowcase}>
         {data && civilisations}
       </div>
-      <div data-slideshow className={HomepageSCSS.images}>
-        <div
-          className={HomepageSCSS.arrowLeft}
-          onClick={(e) => handleClickArrow(e, -1)}
-        >
-          <FaAngleLeft />
+      {loadImages && (
+        <div data-slideshow className={HomepageSCSS.images}>
+          <div
+            className={HomepageSCSS.arrowLeft}
+            onClick={(e) => handleClickArrow(e, -1)}
+          >
+            <FaAngleLeft />
+          </div>
+          <div
+            className={HomepageSCSS.arrowRight}
+            onClick={(e) => handleClickArrow(e, 1)}
+          >
+            <FaAngleRight />
+          </div>
+          <div data-indicators className={HomepageSCSS.indicator}>
+            {slideshowImg.length != 0 &&
+              slideshowImg.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`${HomepageSCSS.indicatorSymbol} ${
+                      index === 0 ? HomepageSCSS.activeIndicator : ""
+                    }`}
+                  ></div>
+                );
+              })}
+          </div>
+          <div data-slides className={HomepageSCSS.slides}>
+            {slideshowImg}
+          </div>
         </div>
-        <div
-          className={HomepageSCSS.arrowRight}
-          onClick={(e) => handleClickArrow(e, 1)}
-        >
-          <FaAngleRight />
-        </div>
-        <div data-indicators className={HomepageSCSS.indicator}>
-          {slideshowImg &&
-            slideshowImg.map((item, index) => {
-              return (
-                <div key={index} className={`${HomepageSCSS.indicatorSymbol} ${index === 0 ? HomepageSCSS.activeIndicator : ""}`}></div>
-              );
-            })}
-        </div>
-        <div data-slides className={HomepageSCSS.slides}>
-          {slideshowImg}
-        </div>
-      </div>
+      )}
     </div>
   );
 }

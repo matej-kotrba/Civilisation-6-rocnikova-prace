@@ -1,5 +1,7 @@
 import React from "react"
 import "./Civ.scss"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 export default function Civ(props) {
 
@@ -10,8 +12,8 @@ export default function Civ(props) {
     return (
       <div className="leaders-container-leader" key={item.leaderName}>
         <h3>{item.leaderName}<img alt={"Image of leader - " + item.leaderName} src={process.env.REACT_APP_ADDRESS_TO_DATABASE + item.leaderImgSmall.data.attributes.url}></img></h3>
-        <p className="leaders-container-leader-description">{item.leaderDescription}</p>
-        <p className="leaders-container-leader-ability">{item.leaderAbility}</p>
+        <ReactMarkdown className="leaders-container-leader-description" children={item.leaderDescription} remarkPlugins={[remarkGfm]}/>
+        <ReactMarkdown className="leaders-container-leader-ability" children={item.leaderAbility} remarkPlugins={[remarkGfm]}/>
       </div>
     )
   })
@@ -20,15 +22,15 @@ export default function Civ(props) {
     <div className="civ-content">
       <div className="basic-description-container">
         <h2>Basic Description</h2>
-        <p>{path.basicDescription}</p>
+        <ReactMarkdown children={path.basicDescription} remarkPlugins={[remarkGfm]}/>
       </div>
       <div className="ability-description-container">
         <h2>Ability Description</h2>
-        <p>{path.abilityDescription}</p>
+        <ReactMarkdown children={path.abilityDescription} remarkPlugins={[remarkGfm]}/>
       </div>
       <div className="victory-conditions-container">
         <h2>Victory paths</h2>
-        <p>{path.victoryConditions}</p>
+        <ReactMarkdown children={path.victoryConditions} remarkPlugins={[remarkGfm]}/>
       </div>
       <div className="leaders-container">
         <h2>Leaders:</h2>

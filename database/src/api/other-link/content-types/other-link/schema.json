@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "other_links",
+  "info": {
+    "singularName": "other-link",
+    "pluralName": "other-links",
+    "displayName": "Other link"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Other links",
+      "required": true
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link.link"
+    }
+  }
+}

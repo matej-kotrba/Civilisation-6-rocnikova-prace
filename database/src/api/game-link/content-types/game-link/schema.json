@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "game_links",
+  "info": {
+    "singularName": "game-link",
+    "pluralName": "game-links",
+    "displayName": "Game link"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Game links",
+      "required": true
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link.link"
+    }
+  }
+}

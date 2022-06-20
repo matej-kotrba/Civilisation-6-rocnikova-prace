@@ -38,17 +38,16 @@
 
     &>.leaders-container-leaders {
       
-      --grid-gap: 5%;
+      --grid-gap: 50px;
 
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
 
-      gap: var(--grid-gap);
+      column-gap: var(--grid-gap, 50px);
 
       & > .leaders-container-leader {
         width: clamp(150px, calc(50% - var(--grid-gap)/2), calc(50% - var(--grid-gap)/2));
-
         & > .leaders-container-leader-ability::before {
           content: 'Ability: ';
           font-weight: 900;
@@ -62,4 +61,13 @@
     }
   }
 
+}
+
+@media screen and (max-width: #{map-get($breakpoints, "sm")}) {
+  .civ-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .leaders-container-leader {
+    min-width: 100%;
+  }
 }
