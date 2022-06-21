@@ -46,24 +46,24 @@ export default function Options() {
   function handleClickClose(event) {
     event.stopPropagation();
     document
-      .querySelector(`.${OptionsSCSS.container}`)
+      .getElementById('options')
       .classList.toggle(`${OptionsSCSS.active}`);
   }
 
   function handleClickOpen() {
     if (
       !document
-        .querySelector(`.${OptionsSCSS.container}`)
+        .getElementById('options')
         .classList.contains(`${OptionsSCSS.active}`)
     ) {
       document
-        .querySelector(`.${OptionsSCSS.container}`)
+        .getElementById('options')
         .classList.toggle(`${OptionsSCSS.active}`);
     }
   }
 
   return (
-    <div className={`${OptionsSCSS.container}`} onClick={handleClickOpen}>
+    <div id="options" className={`${OptionsSCSS.container}`} onClick={handleClickOpen}>
       <h1>
         <FaAngleRight />
       </h1>
