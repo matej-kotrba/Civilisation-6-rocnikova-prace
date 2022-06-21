@@ -24,7 +24,7 @@ nav {
   @include setFlex(row);
   align-items: center;
   font-family: $title-font;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   position: relative;
   top: 0;
   left: 50%;

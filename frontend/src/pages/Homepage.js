@@ -226,6 +226,7 @@ export default function Homepage() {
       <div id="civShowCase" className={HomepageSCSS.civilisationsShowcase}>
         {data && civilisations}
       </div>
+      <h2>Take a look at some images</h2>
       {loadImages && (
         <div data-slideshow className={HomepageSCSS.images}>
           <div
@@ -241,7 +242,7 @@ export default function Homepage() {
             <FaAngleRight />
           </div>
           <div data-indicators className={HomepageSCSS.indicator}>
-            {slideshowImg.length != 0 &&
+            {slideshowImg.length &&
               slideshowImg.map((item, index) => {
                 return (
                   <div

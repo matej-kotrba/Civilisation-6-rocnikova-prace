@@ -1,11 +1,12 @@
 @use "../fonts.scss" as *;
 
 .homepage {
+
   padding: $div-container-padding;
   width: 100%;
   height: 100%;
-  background-color: black;
-  color: $text-color;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   overflow: hidden;
 
   font-family: $title-font;
@@ -61,7 +62,7 @@
       flex-shrink: 1;
       transform: skewX(-7deg);
       border: white 2px solid;
-      background-color: $bg-color;
+      background-color: var(--bg-color);
       overflow: hidden;
       cursor: pointer;
       transition: .3s ease;
@@ -146,12 +147,14 @@
   .images {
     --positionIndex: 0;
     width: 100%;
+    max-width: 800px;
     aspect-ratio: 1920/1080;
     margin-inline: auto;
     overflow: hidden;
-    border: 3px solid $text-color;
+    border: 3px solid var(--text-color);
     border-radius: 30px;
     position: relative;
+    color: $text-color;
 
     .arrowLeft, .arrowRight {
       width: max(50px, 10%);
@@ -183,6 +186,7 @@
 
     .indicator {
       display: flex;
+      align-items: center;
       position: absolute;
       bottom: 5%;
       left: 50%;
@@ -190,13 +194,16 @@
       z-index: 15;
 
       & > .indicatorSymbol {
-        width: max(5vw, 35px);
-        aspect-ratio: 3/1;
+        width: max(3.5vw, 35px);
+        height: max(0.7vw, 7px);
         background-color: rgba(255, 255, 255, 0.379);
-        border: black 2px solid;
+        border: black 1px solid;
+        transition: .5s ease border-radius;
       
         &.activeIndicator {
           background-color: white;
+          height: max(1.15vw, 17.5px);
+          // border-radius: 15px;
         }
       }
     }
@@ -217,6 +224,9 @@
     & img.active {
       opacity: 1;
     }
+  }
+  & > h2 {
+    margin-block: 15px;
   }
 }
 

@@ -1,11 +1,4 @@
-@use "./responsivity.scss" as *;
-
-:root {
-  --font-size: $font-xl;
-  --title-size: $font-title-xl;
-  --root-width: 70%;
-  --inside-main-width: 100%; 
-}
+@use "./fonts.scss" as *;
 
 html {
   height: 100%;
@@ -44,11 +37,13 @@ body {
     background-color: #fef0c3;
     margin-top: max(50px, 15vh);
     filter: drop-shadow(0 0 5px black);
-    
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
   }
   
   footer {
     width: var(--inside-main-width);
     margin: 0 auto;
+    filter: drop-shadow(0 0 5px black);
   }
 }

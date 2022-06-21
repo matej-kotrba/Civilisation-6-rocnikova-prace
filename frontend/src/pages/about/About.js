@@ -14,6 +14,7 @@ export default function About() {
               data {
                 attributes {
                   name
+                  link
                   image {
                     data {
                       attributes {
@@ -35,6 +36,7 @@ export default function About() {
               data {
                 attributes {
                   name
+                  link
                   image {
                     data {
                       attributes {
@@ -56,6 +58,7 @@ export default function About() {
               data {
                 attributes {
                   name
+                  link
                   image {
                     data {
                       attributes {
@@ -86,6 +89,7 @@ export default function About() {
           <div className={AboutSCSS.containerItemGrid}>
             {data.resource.data.attributes.links.data.map((item, index) => {
               return (
+                <a href={item.attributes.link} target="_blank" rel="noopener noreferrer">
                 <div
                   className={AboutSCSS.containerItem}
                   key={item.attributes.name}
@@ -101,6 +105,7 @@ export default function About() {
                     alt={"Image of " + item.attributes.name}
                   ></img>
                 </div>
+                </a>
               );
             })}
           </div>
@@ -111,6 +116,7 @@ export default function About() {
           <div className={AboutSCSS.containerItemGrid}>
             {data.gameLink.data.attributes.links.data.map((item, index) => {
               return (
+                <a href={item.attributes.link} target="_blank" rel="noopener noreferrer">
                 <div
                   className={AboutSCSS.containerItem}
                   key={item.attributes.name}
@@ -126,6 +132,7 @@ export default function About() {
                     alt={"Image of " + item.attributes.name}
                   ></img>
                 </div>
+                </a>
               );
             })}
           </div>
@@ -136,6 +143,7 @@ export default function About() {
           <div className={AboutSCSS.containerItemGrid}>
             {data.otherLink.data.attributes.links.data.map((item, index) => {
               return (
+                <a href={item.attributes.link} target="_blank" rel="noopener noreferrer">
                 <div
                   className={AboutSCSS.containerItem}
                   key={item.attributes.name}
@@ -151,6 +159,7 @@ export default function About() {
                     alt={"Image of " + item.attributes.name}
                   ></img>
                 </div>
+                </a>
               );
             })}
           </div>

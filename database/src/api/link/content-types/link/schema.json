@@ -4,7 +4,8 @@
   "info": {
     "singularName": "link",
     "pluralName": "links",
-    "displayName": "Link"
+    "displayName": "Link",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,12 +18,16 @@
       "unique": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true
     }
   }
 }

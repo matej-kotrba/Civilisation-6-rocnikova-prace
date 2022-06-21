@@ -1,0 +1,126 @@
+@use "../../fonts.scss"as *;
+
+.container {
+
+  & svg {
+    display: block;
+  }
+
+  position: fixed;
+  left: 0;
+  top: 20%;
+  width: max(4vw, 50px);
+  height: max(4vw, 50px);
+  background-color: rgb(64, 64, 64);
+  color: transparent;
+  overflow: hidden;
+  border-radius: 0 15px 15px 0;
+  border: black 1px solid;
+  border-left: 0;
+  cursor: pointer;
+  font-family: $title-font;
+  z-index: 100;
+  transition: .3s ease width;
+
+  & * {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &>h1 {
+    position: absolute;
+    color: white;
+    font-size: max(4vw, 50px);
+    right: 0;
+  }
+
+  &:hover {
+    width: max(8vw, 100px);
+  }
+
+  &.active>h1 {
+    display: none;
+  }
+
+  &.active > .close {
+    display: inline-block;
+    position: absolute;
+    right: max(5vmax, 12px);
+    top: max(5vmax, 12px);
+    font-size: 4rem;
+    color: white;
+    cursor: pointer;
+    transition: transform .3s ease;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.active {
+    cursor: auto;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000000;
+    color: white;
+    display: grid;
+    place-items: center;
+
+    & * {
+      pointer-events: all;
+    }
+
+    & .optionContainer {
+      display: flex;
+      gap: 25px;
+      padding: max(2vw, 15px);
+
+      &>div {
+        width: max(4vw, 120px);
+        aspect-ratio: 3/1;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 50px;
+        position: relative;
+        cursor: pointer;
+
+        transition: background-color .3s ease;
+        background-color: rgb(169, 16, 16);
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 34px;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          left: 2px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: white;
+          transition: left .3s ease;
+        }
+
+        &.true {
+
+          background-color: rgb(17, 169, 17);
+
+          &::before {
+            left: calc(100% - 36px);
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: #{map-get($breakpoints, "sm")}) {
+  .container {
+    &.active {
+       & .optionContainer {
+          flex-direction: column;
+       }
+    }
+  }
+}

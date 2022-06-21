@@ -1,12 +1,14 @@
 @use "../../fonts.scss"as *;
 
 .title-container {
+  background-color: var(--info-bg-color);
+  color: var(--info-text-color);
   padding: $div-container-padding;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px black solid;
+  border-bottom: 1px var(--text-color) solid;
 
   .main-title {
     font-family: $basic-font;
@@ -18,7 +20,7 @@
       width: max(3vw, max(3vh, 50px));
       aspect-ratio: 1/1;
       border-radius: 50%;
-      border: 2px solid black;
+      border: 2px solid var(--text-color);
       margin-inline: 15px;
     }
   }

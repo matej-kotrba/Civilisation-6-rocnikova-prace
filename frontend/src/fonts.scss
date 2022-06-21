@@ -1,15 +1,24 @@
-@use "./responsivity.scss" as *;
+@use "./responsivity.scss"as *;
 @forward "./responsivity.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-
-$title-font: 'Open Sans', sans-serif;
-$basic-font: 'Roboto', sans-serif;
+$title-font: 'Open Sans',
+sans-serif;
+$basic-font: 'Roboto',
+sans-serif;
 
 $text-color: #dda833;
 $bg-color: black;
+$info-text-color: whitesmoke;
+$info-bg-color: #363636;
+
+$bg-color-light: rgb(212, 212, 212);
+$text-color-light: black;
+
+$info-bg-color-light: #fef0c3;
+$info-text-color-light: black;
 
 $font-xxl: 1.8rem;
 $font-xl: 1.6rem;
@@ -29,7 +38,24 @@ $div-container-padding: max(5px, 2vw);
   --font-size: $font-xl;
   --title-size: $font-title-xl;
   --root-width: 70%;
-  --inside-main-width: 100%; 
+  --inside-main-width: 100%;
+
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --info-bg-color: var(--info-bg-color-dark);
+  --info-text-color: var(--info-text-color-dark);
+
+  --bg-color-dark: #{$bg-color};
+  --text-color-dark: #{$text-color};
+  --info-bg-color-dark: #{$info-bg-color};
+  --info-text-color-dark: #{$info-text-color};
+
+  --bg-color-light: #{$bg-color-light};
+  --info-bg-color-light: #{$info-bg-color-light};
+  --text-color-light: #{$text-color-light};
+  --info-text-color-light: #{text-color-light};
+
+
 }
 
 @media screen and (min-width: #{map-get($breakpoints, "xs")}) {
@@ -37,39 +63,43 @@ $div-container-padding: max(5px, 2vw);
     --font-size: #{$font-xs};
     --title-size: #{$font-title-xs};
     --root-width: 95%;
-    --inside-main-width: 100%; 
+    --inside-main-width: 100%;
   }
 }
+
 @media screen and (min-width: #{map-get($breakpoints, "s")}) {
   :root {
     --font-size: #{$font-s};
     --title-size: #{$font-title-s};
     --root-width: 85%;
-    --inside-main-width: 95%; 
+    --inside-main-width: 95%;
   }
 }
+
 @media screen and (min-width: #{map-get($breakpoints, "sm")}) {
   :root {
     --font-size: #{$font-sm};
     --title-size: #{$font-title-sm};
     --root-width: 75%;
-    --inside-main-width: 90%; 
+    --inside-main-width: 90%;
   }
 }
+
 @media screen and (min-width: #{map-get($breakpoints, "xl")}) {
   :root {
     --font-size: #{$font-xl};
     --title-size: #{$font-title-xl};
     --root-width: 70%;
-    --inside-main-width: 85%; 
+    --inside-main-width: 85%;
   }
 }
+
 @media screen and (min-width: #{map-get($breakpoints, "xxl")}) {
   :root {
     --font-size: #{$font-xxl};
     --title-size: #{$font-title-xxl};
     --root-width: 65%;
-    --inside-main-width: 80%; 
+    --inside-main-width: 80%;
   }
 }
 

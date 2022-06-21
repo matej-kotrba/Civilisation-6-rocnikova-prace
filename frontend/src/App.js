@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer"
 import BackToTop from "./components/BackToTop/BackToTop";
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client";
+import Options from "./components/Options/Options";
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_ADDRESS_TO_DATABASE + "/graphql",
@@ -20,6 +21,7 @@ function App() {
         <header>
           <Navbar />
           <BackToTop />
+          <Options />
         </header>
         <main>
           <Navigation />

@@ -1,6 +1,8 @@
 @use "../../fonts.scss"as *;
 
 .glossary-content {
+  background-color: var(--info-bg-color);
+  color: var(--info-text-color);
   padding: $div-container-padding;
   position: relative;
   font-family: $title-font;
