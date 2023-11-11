@@ -13,7 +13,7 @@
     "@strapi/plugin-graphql": "^4.1.12",
     "@strapi/plugin-i18n": "4.1.11",
     "@strapi/plugin-users-permissions": "4.11.4",
-    "@strapi/strapi": "4.12.1",
+    "@strapi/strapi": "4.13.1",
     "better-sqlite3": "7.4.6"
   },
   "author": {
